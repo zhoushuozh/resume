@@ -1,6 +1,6 @@
 /*css reset */
 body, h1, h2, h3, h4, h5, h6, hr, div, p, img, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;} 
-body, button, input, select, textarea { font:16px 'Microsoft YaHei',arial,sans-serif;} 
+body, button, input, select, textarea { font:14px 'Microsoft YaHei',arial,sans-serif;} 
 h1, h2, h3, h4, h5, h6{ font-size:100%;} 
 ul, ol { list-style:none;} 
 a{color: inherit; text-decoration:none;} 
@@ -11,18 +11,23 @@ textarea { resize: none;}
 button, input, select, textarea { font-size:100%;} 
 table { border-collapse:collapse; border-spacing:0;} 
 article,aside,main,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
+body{background-color:#EFEFEF;color: #333333; }
 img{display: inline;vertical-align:middle;}
 .clearfix:after { content:" "; display:block; height:0; visibility:hidden; clear:both;}
 .clearfix { zoom:1;}
 
+.header{
+	min-height: 60px;
+	margin-bottom: 40px;
+}
 .head-bg{
 	width: 100%;
 	height: 515px;
-	background: url(https://zhoushuo.me/demo/images/head-bg.jpg) no-repeat center;
+	background: url(http://p4ceeqep9.bkt.clouddn.com/head-bg.jpg) no-repeat center;
 	background-size: cover;
 	position: absolute;
 	top: 0;
-	z-index: -1;
+	z-index: 1;
 }
 
 .head-bg:before {
@@ -37,6 +42,9 @@ img{display: inline;vertical-align:middle;}
 
 .header  .head-bar{
 	padding: 30px 15px;
+	transition: .3s;
+	position: relative;
+	z-index: 3;
 }
 
 .header .logo{
@@ -66,7 +74,8 @@ img{display: inline;vertical-align:middle;}
 
 .header .head-nav li a{
 	color: rgba(255,255,255,.8);
-	font-weight: bold;
+	font-weight: 600;
+	transform: 0.3s;
 }
 
 .header .head-nav li a:after{
@@ -84,4 +93,138 @@ img{display: inline;vertical-align:middle;}
 .header .head-nav li a:hover:after,
 .header .head-nav .active a:after{
 	width: 100%;
+}
+
+.header .head-active{
+	width: 100%;
+	background: white;
+	padding: 15px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23);
+}
+
+.header .head-active li a{
+	color: rgba(0,0,0,.8);
+}
+
+.container{
+	max-width: 960px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+}
+
+.container .about{
+	padding-top: 40px;
+}
+
+.container .about .contour{
+	width: 100%;
+	background: white;
+	padding: 50px;
+}
+
+.container .about .contour .avatar{
+	width: 35%;
+	min-height: 1px;
+	float: left;
+	margin-right: 6%;
+}
+
+.container .about .contour .avatar img{
+	width: 100%;
+	display: block;
+}
+
+.container .about .contour .about-right{
+	float: left;
+    width: 59%;
+}
+
+.container .about .contour .bubble{
+	display: inline-block;
+	font-size: 14px;
+	padding: 5px 10px;
+	background: #00CCFF;
+	color: white;
+	font-weight: 700;
+	text-transform: uppercase;
+	position: relative;
+	margin-bottom: 30px;
+}
+
+.container .about .contour .bubble:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	border:10px solid transparent;
+	border-left-color: #00CCFF;
+	border-top-width: 0;
+	position: absolute;
+	top: 100%;
+	left: 5px;
+}
+
+.container .about .contour .about-title{
+	font-size: 36px;
+	line-height: 1.2em;
+	margin-bottom: 5px;
+}
+
+.container .about .contour h2{
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.2em;
+	color: #444;
+}
+
+.container .about .contour hr{
+	width: 100%;
+	height: 0;
+	border-top: 1px solid #DEDEDE;
+	margin: 20px 0;
+}
+
+.container .about .contour dt,
+.container .about .contour dd{
+	float: left;
+	margin: 12px 0;
+}
+
+.container .about .contour dt{
+	width: 30%;
+	font-weight: 600;
+	color: #333;
+} 
+
+.container .about .contour dd{
+	width: 70%;
+	color: #999;
+}
+
+.container .about .about-bottom{
+	background: #00CCFF;
+	text-align: center;
+	padding: 15px 0;
+}
+
+.container .about .about-bottom a{
+	display: inline-block;
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	border-radius: 50%;
+	color: white;
+	font-size: 24px;
+	margin:5px 15px;
+	transition: 0.3s;
+}
+
+.container .about .about-bottom a:hover{
+	background: rgba(0,0,0,.1);
 }
