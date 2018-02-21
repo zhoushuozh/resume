@@ -1,11 +1,14 @@
 $(function(){
-	$(window).scroll(function(){
+	function fnHead(){
 		if($(window).scrollTop() == 0){
 			$(".head-bar").removeClass("head-active");
-			$(".header").css({"min-height":"0"});
 		}else{
-			$(".header").css({"min-height":"60px"});
 			$(".head-bar").addClass("head-active");
 		}
+	}
+	fnHead();
+
+	$(window).scroll(function(){
+		fnHead();
 	})
 })

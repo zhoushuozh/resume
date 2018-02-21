@@ -1,10 +1,10 @@
 /*css reset */
 body, h1, h2, h3, h4, h5, h6, hr, div, p, img, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;} 
-body, button, input, select, textarea { font:14px 'Microsoft YaHei',arial,sans-serif;} 
+body, button, input, select, textarea { font:14px helvetica,arial,sans-serif;} 
 h1, h2, h3, h4, h5, h6{ font-size:100%;} 
 ul, ol { list-style:none;} 
 a{color: inherit; text-decoration:none;} 
-input:focus,textarea:focus { outline:none;}
+input:focus,textarea:focus,button:focus { outline:none;}
 legend { color:#000;} 
 fieldset, img { border:0;} 
 textarea { resize: none;}
@@ -17,8 +17,8 @@ img{display: inline;vertical-align:middle;}
 .clearfix { zoom:1;}
 
 .header{
-	min-height: 60px;
-	margin-bottom: 40px;
+	min-height: 90px;
+	margin-bottom: 10px;
 }
 .head-bg{
 	width: 100%;
@@ -43,8 +43,11 @@ img{display: inline;vertical-align:middle;}
 .header  .head-bar{
 	padding: 30px 15px;
 	transition: .3s;
-	position: relative;
-	z-index: 3;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
 }
 
 .header .logo{
@@ -86,7 +89,7 @@ img{display: inline;vertical-align:middle;}
 	bottom: 0;
 	height: 3px;
 	border-radius: 2px;
-	background: #66FF66;
+	background: #00CCFF;
 	transition: 0.3s ease-out;
 }
 
@@ -99,9 +102,6 @@ img{display: inline;vertical-align:middle;}
 	width: 100%;
 	background: white;
 	padding: 15px;
-	position: fixed;
-	top: 0;
-	left: 0;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23);
 }
 
@@ -118,34 +118,38 @@ img{display: inline;vertical-align:middle;}
 	z-index: 2;
 }
 
-.container .about{
-	padding-top: 40px;
+.section{
+	padding-top: 70px;
 }
 
-.container .about .contour{
+.about-section .about-card{
+	box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.about-section .contour{
 	width: 100%;
 	background: white;
 	padding: 50px;
 }
 
-.container .about .contour .avatar{
+.about-section .contour .avatar{
 	width: 35%;
 	min-height: 1px;
 	float: left;
 	margin-right: 6%;
 }
 
-.container .about .contour .avatar img{
+.about-section .contour .avatar img{
 	width: 100%;
 	display: block;
 }
 
-.container .about .contour .about-right{
+.about-section .contour .about-right{
 	float: left;
     width: 59%;
 }
 
-.container .about .contour .bubble{
+.about-section .contour .bubble{
 	display: inline-block;
 	font-size: 14px;
 	padding: 5px 10px;
@@ -157,7 +161,7 @@ img{display: inline;vertical-align:middle;}
 	margin-bottom: 30px;
 }
 
-.container .about .contour .bubble:after{
+.about-section .contour .bubble:after{
 	content: "";
 	display: block;
 	width: 0;
@@ -170,50 +174,51 @@ img{display: inline;vertical-align:middle;}
 	left: 5px;
 }
 
-.container .about .contour .about-title{
+.about-section .contour .about-title{
 	font-size: 36px;
 	line-height: 1.2em;
 	margin-bottom: 5px;
 }
 
-.container .about .contour h2{
+.about-section .contour h2{
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 1.2em;
 	color: #444;
 }
 
-.container .about .contour hr{
+.about-section .contour hr{
 	width: 100%;
 	height: 0;
 	border-top: 1px solid #DEDEDE;
 	margin: 20px 0;
 }
 
-.container .about .contour dt,
-.container .about .contour dd{
+.about-section .contour dt,
+.about-section .contour dd{
 	float: left;
 	margin: 12px 0;
+	line-height: 1.2;
 }
 
-.container .about .contour dt{
+.about-section .contour dt{
 	width: 30%;
 	font-weight: 600;
 	color: #333;
 } 
 
-.container .about .contour dd{
+.about-section .contour dd{
 	width: 70%;
 	color: #999;
 }
 
-.container .about .about-bottom{
+.about-section .about-bottom{
 	background: #00CCFF;
 	text-align: center;
 	padding: 15px 0;
 }
 
-.container .about .about-bottom a{
+.about-section .about-bottom a{
 	display: inline-block;
 	width: 45px;
 	height: 45px;
@@ -225,6 +230,134 @@ img{display: inline;vertical-align:middle;}
 	transition: 0.3s;
 }
 
-.container .about .about-bottom a:hover{
+.about-section .about-bottom a:hover{
 	background: rgba(0,0,0,.1);
 }
+
+.about-section .download-rs{
+	margin: 40px 0;
+	text-align: center;
+}
+
+.about-section .download-rs a{
+	display: inline-block;
+	padding: 18px 55px;
+	border:1px solid #cbcdcf;
+	border-radius: 4px;
+	margin: 0 auto;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 0.1em;
+	transition: box-shadow 0.3s;
+}
+
+.about-section .download-rs a:hover{
+	box-shadow: 0 5px 10px rgba(0,0,0,0.25);
+}
+
+.about-section .about-text{
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.8;
+	vertical-align: baseline;
+	font-weight: 400;
+}
+
+.section .section-title{
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 1.2;
+	text-align: center;
+	margin-bottom: 25px;
+	letter-spacing: 0.1em;
+}
+
+.skill-section .skill-wraper{
+	background: white;
+	padding: 50px;
+	box-shadow: 0 0 8px rgba(0,0,0,.2)
+}
+
+.skill-section .skill-wraper .skill-item{
+	float: left;
+	width: 48%;
+	margin-bottom: 40px;
+}
+
+.skill-section .skill-wraper .skill-item:nth-child(even){
+	float: right;
+}
+
+.skill-section .skill-wraper .skill-item:nth-last-child(1),
+.skill-section .skill-wraper .skill-item:nth-last-child(2){
+	margin-bottom: 0;
+}
+
+.skill-section .skill-wraper .skill-item h3{
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 1.2;
+	margin-bottom: 5px;
+	color: #444;
+	letter-spacing: 0.1em;
+}
+
+.skill-section .skill-wraper .skill-item .progressBar{
+	height: 5px;
+	border-radius: 3px;
+	background: #B3F0FF;
+}
+
+.skill-section .skill-wraper .skill-item .progressBar .progress{
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: #00CCFF;
+	width: 2%;
+}
+
+.filter-wraper{
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.filter-wraper .filter{
+	display: inline-block;
+}
+
+.filter-wraper .filter .filter-btn{
+	margin-bottom: 10px;
+}
+
+.filter-wraper .filter button{
+	border:none;
+	background: none;
+	margin-right: 50px;
+	font-weight: 600;
+	color: #333;
+	cursor: pointer;
+}
+
+.filter-wraper .filter button:last-child{
+	margin-right: 0;
+}
+
+.filter-wraper .filter .filter-bar{
+	height: 5px;
+	background-color: white;
+	border-radius: 3px;
+	position: relative;
+}
+
+.filter-wraper .filter .filter-bar .filter-bar-line{
+	display: block;
+	width: 32px;
+	height: 100%;
+	background: #00CCFF;
+	border-radius: 3px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transition: 0.3s;
+}
+
