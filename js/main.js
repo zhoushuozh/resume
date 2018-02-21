@@ -2,8 +2,10 @@ $(function(){
 	function fnHead(){
 		if($(window).scrollTop() == 0){
 			$(".head-bar").removeClass("head-active");
+			$(".btn-scroll-top").fadeOut();
 		}else{
 			$(".head-bar").addClass("head-active");
+			$(".btn-scroll-top").fadeIn();
 		}
 	}
 	fnHead();
@@ -26,4 +28,8 @@ $(function(){
 
 		$(".filter-bar-line").css({"width":fWidth,"left":fLeft});
 	})
+})
+
+$(".btn-scroll-top").click(function(e){
+	$("html, body").animate({scrollTop:0});
 })
