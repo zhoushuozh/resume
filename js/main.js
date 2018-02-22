@@ -33,3 +33,17 @@ $(function(){
 $(".btn-scroll-top").click(function(e){
 	$("html, body").animate({scrollTop:0});
 })
+
+$(function(){
+	$(".input-field input,.input-field textarea").focus(function(){
+		$(this).parent().addClass("used");
+	})
+
+	$(".input-field input,.input-field textarea").blur(function(){
+		$(this).parent().removeClass("used");
+	})
+})
+
+$(".message-board").css({"min-height":$(".contact-text").height()});
+
+
