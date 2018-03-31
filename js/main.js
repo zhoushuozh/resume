@@ -15,7 +15,7 @@
 	})
 })*/
 
-$(function(){
+/*$(function(){
 	var fbLeft = $(".filter-bar").offset().left;
 
 	$(".filter-btn button").click(function(){
@@ -32,7 +32,7 @@ $(function(){
 
 $(".btn-scroll-top").click(function(e){
 	$("html, body").animate({scrollTop:0});
-});
+});*/
 
 /*$(function(){
 	$(".message-board").css({"min-height":$(".contact-text").height()});
@@ -47,18 +47,26 @@ $(".btn-scroll-top").click(function(e){
 })*/
 
 let headBox = document.querySelector('.head-bar');
+let backTop = document.querySelector('.btn-scroll-top');
+
 stickyHeader();
 
 function stickyHeader(){
     if(window.scrollY>0){
-        headBox.classList.add('sticky')
+        headBox.classList.add('sticky');
+        backTop.classList.add('show')
     }else{
-        headBox.classList.remove('sticky')
+        headBox.classList.remove('sticky');
+        backTop.classList.remove('show')
     }
 }
 
 window.onscroll = function () {
     stickyHeader();
+};
+
+backTop.onclick = function () {
+	window.scrollTo(0,0);
 };
 
 let aNavTags = headBox.querySelectorAll('.head-nav ul li a');
@@ -72,8 +80,19 @@ for(let i = 0; i<aNavTags.length; i++){
 			return false
 		}else{
             let element = document.querySelector(href);
-            let top = element.offsetTop;
-            window.scrollTo(0,top);
+            let currentTop = window.scrollY;
+            let n = 30;
+            let t = Math.floor(500 / n);
+            let i = 0;
+            let distance =  Math.floor((element.offsetTop - currentTop -80) / n);
+            let timer = setInterval(function () {
+                if(i === n) {
+                    clearInterval(timer);
+                    return
+                }
+                i++;
+                window.scrollTo(0,currentTop + distance * i);
+            },t)
 		}
     }
 }
@@ -86,5 +105,23 @@ for (let i = 0; i<amsInput.length; i++){
     };
     amsInput[i].onblur = function () {
         this.parentNode.classList.remove('used');
+    }
+}
+
+let aFilterBtn = document.querySelectorAll('.filter-btn button');
+let filterLine = document.querySelector('.filter-bar-line');
+let nFbLeft = document.querySelector('.filter-bar').offsetLeft;
+
+for (let i =0; i<aFilterBtn.length; i++){
+    aFilterBtn[i].onclick = function () {
+    	for(let i =0; i<aFilterBtn.length; i++){
+            aFilterBtn[i].classList.remove('active')
+		}
+		this.classList.add('active');
+
+		let nBtnLeft = Math.floor(this.offsetLeft - nFbLeft);
+		let NBtnWidth = Math.ceil(this.offsetWidth);
+        filterLine.style.left = nBtnLeft + 'px';
+        filterLine.style.width = NBtnWidth + 'px';
     }
 }
