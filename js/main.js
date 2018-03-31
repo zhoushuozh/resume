@@ -66,7 +66,18 @@ window.onscroll = function () {
 };
 
 backTop.onclick = function () {
-	window.scrollTo(0,0);
+    let currentTop = window.scrollY;
+    let t = Math.abs(currentTop / 100 * 200);
+    if(t>800){t=800}
+    console.log(currentTop,t);
+    let coords = { y: currentTop };
+    let tween = new TWEEN.Tween(coords)
+        .to({ y: 0 }, t)
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .onUpdate(function() {
+            window.scrollTo(0,coords.y)
+        })
+        .start();
 };
 
 let aNavTags = headBox.querySelectorAll('.head-nav ul li a');
@@ -81,18 +92,17 @@ for(let i = 0; i<aNavTags.length; i++){
 		}else{
             let element = document.querySelector(href);
             let currentTop = window.scrollY;
-            let n = 30;
-            let t = Math.floor(500 / n);
-            let i = 0;
-            let distance =  Math.floor((element.offsetTop - currentTop -80) / n);
-            let timer = setInterval(function () {
-                if(i === n) {
-                    clearInterval(timer);
-                    return
-                }
-                i++;
-                window.scrollTo(0,currentTop + distance * i);
-            },t)
+            let targetTop =  element.offsetTop - 80;
+            let t = Math.abs((targetTop - currentTop) / 100 *300);
+            if(t>500){t=500}
+            let coords = { y: currentTop };
+            let tween = new TWEEN.Tween(coords)
+                .to({ y: targetTop }, t)
+                .easing(TWEEN.Easing.Quadratic.InOut)
+                .onUpdate(function() {
+                    window.scrollTo(0,coords.y)
+                })
+                .start();
 		}
     }
 }
@@ -125,3 +135,9 @@ for (let i =0; i<aFilterBtn.length; i++){
         filterLine.style.width = NBtnWidth + 'px';
     }
 }
+
+function animate(time) {
+    requestAnimationFrame(animate);
+    TWEEN.update(time);
+}
+requestAnimationFrame(animate);
