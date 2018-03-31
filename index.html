@@ -207,7 +207,7 @@
             <div class="contact-wraper clearfix">
                 <div class="contact-box">
                     <div class="message-board">
-                        <h3>想说点什么? 欢迎留言!</h3>
+                        <h3>说点什么? </h3>
                         <form class="contact-form" action="#" method="post">
                             <div class="input-field">
                                 <input type="text" id="user-name" name="name">
@@ -281,16 +281,23 @@
 <script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
 <script src="js/main.js"></script>
 <script>
-function deletLoading(){
+(function (){
     document.onreadystatechange = completeLoading;
     let theLoader = document.getElementById('loader');
     //加载状态为complete时移除loading效果
     function completeLoading() {
         if (document.readyState === "complete") {
             document.body.removeChild(theLoader);
+
+            stickyHeader();
+            highLightNav();
+
+            window.onscroll = function () {
+                stickyHeader();
+                highLightNav();
+            }
         }
     }
-}
-deletLoading();
+}())
 </script>
 </html>

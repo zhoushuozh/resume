@@ -49,27 +49,16 @@ $(".btn-scroll-top").click(function(e){
 let headBox = document.querySelector('.head-bar');
 let backTop = document.querySelector('.btn-scroll-top');
 
-stickyHeader();
+let sectionBox = document.querySelectorAll('.container .section');
 
-function stickyHeader(){
-    if(window.scrollY>0){
-        headBox.classList.add('sticky');
-        backTop.classList.add('show')
-    }else{
-        headBox.classList.remove('sticky');
-        backTop.classList.remove('show')
-    }
+for(let i = 0 ; i<sectionBox.length; i++){
+    sectionBox[i].classList.add('out');
 }
-
-window.onscroll = function () {
-    stickyHeader();
-};
 
 backTop.onclick = function () {
     let currentTop = window.scrollY;
     let t = Math.abs(currentTop / 100 * 200);
     if(t>800){t=800}
-    console.log(currentTop,t);
     let coords = { y: currentTop };
     let tween = new TWEEN.Tween(coords)
         .to({ y: 0 }, t)
@@ -92,7 +81,7 @@ for(let i = 0; i<aNavTags.length; i++){
 		}else{
             let element = document.querySelector(href);
             let currentTop = window.scrollY;
-            let targetTop =  element.offsetTop - 80;
+            let targetTop =  element.offsetTop - 100;
             let t = Math.abs((targetTop - currentTop) / 100 *300);
             if(t>500){t=500}
             let coords = { y: currentTop };
@@ -133,6 +122,40 @@ for (let i =0; i<aFilterBtn.length; i++){
 		let NBtnWidth = Math.ceil(this.offsetWidth);
         filterLine.style.left = nBtnLeft + 'px';
         filterLine.style.width = NBtnWidth + 'px';
+    }
+}
+
+function stickyHeader(){
+    if(window.scrollY>0){
+        headBox.classList.add('sticky');
+        backTop.classList.add('show')
+    }else{
+        headBox.classList.remove('sticky');
+        backTop.classList.remove('show')
+    }
+}
+
+function highLightNav() {
+    let minIndex = 0;
+    for(let i = 0 ; i<sectionBox.length; i++){
+        let bodyHeight = document.documentElement.clientHeight;
+        let sectionTop = sectionBox[i].offsetTop;
+        let sectionScrollTop = sectionTop - window.scrollY;
+        if(sectionScrollTop < bodyHeight - 150 && sectionTop + sectionBox[i].offsetHeight > window.scrollY + 150){
+            minIndex = i;
+            sectionBox[minIndex].classList.remove('out');
+        }
+        if(sectionScrollTop < bodyHeight / 2){
+            minIndex = i;
+            let id = sectionBox[minIndex].id;
+            let a = document.querySelector('a[href="#'+ id + '"]');
+            let li = a.parentNode;
+            let ali = li.parentNode.children;
+            for(let i = 0; i<ali.length; i++){
+                ali[i].classList.remove('active');
+            }
+            li.classList.add('active');
+        }
     }
 }
 

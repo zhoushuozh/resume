@@ -118,6 +118,12 @@ img{display: inline;vertical-align:middle;}
 
 .section{
 	margin-top: 70px;
+	transition:all .5s ease-in-out;
+}
+
+.section.out{
+	transform: translateY(130px);
+	opacity: 0;
 }
 
 .about-section .about-card{
@@ -317,7 +323,11 @@ img{display: inline;vertical-align:middle;}
 	height: 100%;
 	border-radius: inherit;
 	background: #00CCFF;
-	width: 2%;
+	transition: 1s;
+}
+
+.section.out .skill-wraper .skill-item .progressBar .progress{
+	width: 2% !important;
 }
 
 .filter-wraper{
@@ -559,7 +569,7 @@ img{display: inline;vertical-align:middle;}
     border-radius: 50%;
     top: 25px;
     right: -45px;
-    z-index: 999;
+    z-index: 20;
 }
 
 .timeline .timeline-item .timeline-box .timeline-date {
