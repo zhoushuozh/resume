@@ -23,7 +23,7 @@
                     <li><a href="#skill">技能</a></li>
                     <li><a href="#portfolio">作品</a></li>
                     <li><a href="#experience">经历</a></li>
-                    <li><a href="#contact">联系方式</a></li>
+                    <li><a href="#message">留言</a></li>
                     <li><a href="">其他</a></li>
                 </ul>
             </nav>
@@ -128,7 +128,7 @@
             <div class="pf-grid-container clearfix" style="height:600px;">
                 <div class="pf-grid-item pf-size-big" style="position: absolute;top: 0;left: 0;">
                     <article class="pf-item">
-                        <img src="http://p4ceeqep9.bkt.clouddn.com/fp-01.jpg" alt="">
+                        <img src="https://blog.zhoushuo.me/fp-01.jpg" alt="">
                         <div class="pf-item-cont">
                             <h3 class="pf-item-title">作品名称</h3>
                             <div class="pf-item-cat">
@@ -143,7 +143,7 @@
                 </div>
                 <div class="pf-grid-item" style="position: absolute;top: 0;left: 66%;">
                     <article class="pf-item">
-                        <img src="http://p4ceeqep9.bkt.clouddn.com/pf-02.jpg" alt="">
+                        <img src="https://blog.zhoushuo.me/pf-02.jpg" alt="">
                         <div class="pf-item-cont">
                             <h3 class="pf-item-title">作品名称</h3>
                             <div class="pf-item-cat">
@@ -158,7 +158,7 @@
                 </div>
                 <div class="pf-grid-item" style="position: absolute;top: 302px;left: 66%;">
                     <article class="pf-item">
-                        <img src="http://p4ceeqep9.bkt.clouddn.com/pf-03.jpg" alt="">
+                        <img src="https://blog.zhoushuo.me/pf-03.jpg" alt="">
                         <div class="pf-item-cont">
                             <h3 class="pf-item-title">作品名称</h3>
                             <div class="pf-item-cat">
@@ -202,8 +202,8 @@
                 </div>
             </div>
         </section>
-        <section id="contact" class="section contact-section">
-            <h2 class="section-title">联系方式</h2>
+        <section id="message" class="section message-section">
+            <h2 class="section-title">留言</h2>
             <div class="contact-wraper clearfix">
                 <div class="contact-box">
                     <div class="message-board">
@@ -268,10 +268,8 @@
     function completeLoading() {
         if (document.readyState === "complete") {
             document.body.removeChild(theLoader);
-
             stickyHeader();
             highLightNav();
-
             window.onscroll = function () {
                 stickyHeader();
                 highLightNav();
