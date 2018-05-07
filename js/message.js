@@ -1,87 +1,107 @@
-var APP_ID = '69un2Mo80h7qFpuS5CuUXVG0-gzGzoHsz';
-var APP_KEY = 'IUPRcnbMhoogWCGSPykB8wCN';
+!function () {
+    var view = document.querySelector("#message");
 
-AV.init({
-    appId: APP_ID,
-    appKey: APP_KEY
-});
+    var model = {
+        init: function () {
+            var APP_ID = '69un2Mo80h7qFpuS5CuUXVG0-gzGzoHsz';
+            var APP_KEY = 'IUPRcnbMhoogWCGSPykB8wCN';
 
-var query = new AV.Query('message');
-query.find().then(
-    function (messages) {
-        let array = messages.map((item) => {
-            let obj = {};
-            Object.assign(obj, item.attributes);
-            obj['date'] = item.createdAt.getFullYear() + '-'
-                + (item.createdAt.getMonth() + 1) + '-'
-                + item.createdAt.getDate() + ' '
-                + item.createdAt.getHours() + ':'
-                + item.createdAt.getMinutes()
-            return obj
-        });
-        array.forEach((item) => {
-            createLi(item.name,item.content,item.date)
-        })
-    }).then(
-        () => {},
-        (error) => console.log(error)
-    );
-
-let messageForm = document.querySelector("#message-form");
-messageForm.addEventListener('submit',function (e) {
-    e.preventDefault();
-    let name = messageForm.querySelector("input[name=user-name]").value;
-    let email = messageForm.querySelector("input[name=user-email]").value;
-    let content = messageForm.querySelector("textarea[name=message-content]").value;
-
-    var Message = AV.Object.extend('message');
-    var message = new Message();
-    message.save({
-        name: name,
-        email: email,
-        content: content
-    }).then(() => {
-        messageForm.reset();
-        let inputs = messageForm.querySelectorAll(".input-field input, .input-field textarea");
-        for(let i = 0; i < inputs.length; i++){
-            inputs[i].parentNode.classList.remove('used')
+            AV.init({appId: APP_ID, appKey: APP_KEY});
+        },
+        fetch: function () {
+            var query = new AV.Query('message');
+            return query.find()
+        },
+        save: function (name,email,content) {
+            var Message = AV.Object.extend('message');
+            var message = new Message();
+            return message.save({
+                name: name,
+                email: email,
+                content: content
+            })
         }
-        let date = new Date();
+    };
 
-        let messageDate = date.getFullYear() + '-'
-            + (date.getMonth() + 1) + '-'
-            + date.getDate() + ' '
-            + date.getHours() + ':'
-            + date.getMinutes();
-        createLi(name,content,messageDate)
-    },() => console.log("提交留言失败，请重试！") )
-})
+    var controller = {
+        view: null,
+        model: null,
+        messageList: null,
+        init: function (view, model) {
+            this.view = view;
+            this.model = model;
+            this.form = view.querySelector("#message-form");
+            this.messageList = view.querySelector(".message-list-ul");
+            this.model.init();
+            this.loadMessages();
+            this.bindEvents();
+        },
+        createTags: function (tagName,className,conText) {
+            let tag = document.createElement(tagName);
+            tag.classList.add(className);
+            tag.innerText = conText;
+            return tag
+        },
+        createMessagesList: function (name,content,time) {
+            let li = document.createElement('li');
+            li.classList.add('message-item','hide');
+            li.appendChild(this.createTags('span','name',name));
+            li.appendChild(this.createTags('p','content',content));
+            li.appendChild(this.createTags('div','message-time',time));
 
-function createLi(name,content,time){
-    let li = document.createElement('li');
-    li.classList.add('message-item','hide');
+            let item = document.querySelectorAll(".message-item");
+            if(item.length>0){
+                this.messageList.insertBefore(li,item[0]);
+            }else{
+                this.messageList.appendChild(li);
+            }
+            setTimeout(()=> {li.classList.remove('hide')}, 100)
+        },
+        loadMessages: function () {
+            model.fetch().then((messages) => {
+                let array = messages.map((item) => {
+                    let obj = {};
+                    Object.assign(obj, item.attributes);
+                    obj['date'] = item.createdAt.getFullYear() + '-'
+                        + (item.createdAt.getMonth() + 1) + '-'
+                        + item.createdAt.getDate() + ' '
+                        + item.createdAt.getHours() + ':'
+                        + item.createdAt.getMinutes();
+                    return obj
+                });
+                array.forEach((item) => {
+                    this.createMessagesList(item.name,item.content,item.date)
+                })
+            }).then(() => {}, (error) => console.log(error));
+        },
+        bindEvents: function () {
+            this.form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.savaMessage();
+            })
+        },
+        savaMessage: function(){
+            let messageForm = this.form;
+            let name = messageForm.querySelector("input[name=user-name]").value;
+            let email = messageForm.querySelector("input[name=user-email]").value;
+            let content = messageForm.querySelector("textarea[name=message-content]").value;
 
-    let span = document.createElement('span');
-    span.classList.add('name');
-    span.innerText = name;
-    li.appendChild(span);
-
-    let p = document.createElement('p');
-    p.classList.add('content');
-    p.innerText = content;
-    li.appendChild(p);
-
-    let div = document.createElement('div');
-    div.classList.add('message-time');
-    div.innerText = time;
-    li.appendChild(div);
-
-    let item = document.querySelectorAll(".message-item");
-    if(item.length>0){
-        document.querySelector('.message-list-ul').insertBefore(li,item[0]);
-    }else{
-        document.querySelector('.message-list-ul').appendChild(li);
-    }
-    setTimeout(()=> {li.classList.remove('hide')}, 300)
-}
+            model.save(name,email,content).then(() => {
+                messageForm.reset();
+                let inputs = messageForm.querySelectorAll(".input-field input, .input-field textarea");
+                for(let i = 0; i < inputs.length; i++){
+                    inputs[i].parentNode.classList.remove('used');
+                }
+                let date = new Date();
+                let messageDate = date.getFullYear() + '-'
+                    + (date.getMonth() + 1) + '-'
+                    + date.getDate() + ' '
+                    + date.getHours() + ':'
+                    + date.getMinutes();
+                this.createMessagesList(name,content,messageDate)
+            },() => console.log("提交留言失败，请重试！") )
+        }
+    };
+    controller.init(view, model)
+}.call();
 

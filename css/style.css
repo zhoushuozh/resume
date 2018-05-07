@@ -625,37 +625,37 @@ img{display: inline;vertical-align:middle;}
     border-color: transparent #fff transparent transparent;
 }
 
-.contact-section .contact-box{
+.message-section .contact-box{
 	width: 50%;
 	float: left;
 	padding: 0 15px;
 }
 
-.contact-section .message-board,
-.contact-section .message-list{
+.message-section .message-board,
+.message-section .message-list{
 	background-color: white;
 	box-shadow: 0 0 8px rgba(0,0,0,.3);
 	height: 515px;
 }
 
-.contact-section .message-board{
+.message-section .message-board{
 	padding: 50px;
 }
 
-.contact-section .message-board h3{
+.message-section .message-board h3{
 	font-weight: normal;
 	font-size: 24px;
 	margin-bottom: 25px;
 	line-height: 1.2;
 }
 
-.contact-section .message-board .input-field{
+.message-section .message-board .input-field{
 	position: relative;
 	margin-bottom: 30px;
 }
 
-.contact-section .message-board input,
-.contact-section .message-board textarea{
+.message-section .message-board input,
+.message-section .message-board textarea{
 	font-size: 14px;
 	color: #666;
     line-height: 16px;
@@ -667,20 +667,20 @@ img{display: inline;vertical-align:middle;}
     border-radius: 0;
 }
 
-.contact-section .message-board textarea{
+.message-section .message-board textarea{
 	line-height: 1.5em;
 }
 
-.contact-section .message-board textarea::-webkit-scrollbar{
+.message-section .message-board textarea::-webkit-scrollbar{
 	width: 4px;
 }
 
-.contact-section .message-board textarea::-webkit-scrollbar-thumb{
+.message-section .message-board textarea::-webkit-scrollbar-thumb{
 	background-color: #00CCFF;
 	border-radius: 2px;
 }
 
-.contact-section .message-board label{
+.message-section .message-board label{
 	top: 10px;
     left: 0;
     color: #666;
@@ -695,13 +695,13 @@ img{display: inline;vertical-align:middle;}
     transition: 0.15s ease all;
 }
 
-.contact-section .message-board .used label{
+.message-section .message-board .used label{
 	top: -15px;
 	font-size: 12px;
 	color: #00CCFF;
 }
 
-.contact-section .message-board .line{
+.message-section .message-board .line{
 	display: block;
 	width: 0;
 	margin: 0 auto;
@@ -710,7 +710,7 @@ img{display: inline;vertical-align:middle;}
 	transition: .3s;
 }
 
-.contact-section .message-board .used .line{
+.message-section .message-board .used .line{
 	width: 100%;
 }
 
