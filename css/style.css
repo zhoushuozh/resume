@@ -632,10 +632,10 @@ img{display: inline;vertical-align:middle;}
 }
 
 .contact-section .message-board,
-.contact-section .contact-text{
+.contact-section .message-list{
 	background-color: white;
 	box-shadow: 0 0 8px rgba(0,0,0,.3);
-	min-height: 515px;
+	height: 515px;
 }
 
 .contact-section .message-board{
@@ -656,7 +656,8 @@ img{display: inline;vertical-align:middle;}
 
 .contact-section .message-board input,
 .contact-section .message-board textarea{
-	font-size: 16px;
+	font-size: 14px;
+	color: #666;
     line-height: 16px;
     padding: 10px 0;
     display: block;
@@ -664,6 +665,19 @@ img{display: inline;vertical-align:middle;}
     border: none;
     border-bottom: 1px solid #d8d8d8;
     border-radius: 0;
+}
+
+.contact-section .message-board textarea{
+	line-height: 1.5em;
+}
+
+.contact-section .message-board textarea::-webkit-scrollbar{
+	width: 4px;
+}
+
+.contact-section .message-board textarea::-webkit-scrollbar-thumb{
+	background-color: #00CCFF;
+	border-radius: 2px;
 }
 
 .contact-section .message-board label{
@@ -726,41 +740,66 @@ img{display: inline;vertical-align:middle;}
     font-weight: bold;
 }
 
-.contact-section .contact-text .contact-list{
-	padding: 45px 35px 30px;
+.message-list{
+	overflow-y: scroll;
 }
 
-.contact-section .contact-text .contact-list li{
-	margin-bottom: 20px;
-	font-size: 16px;
-	line-height: 20px;
+.message-list::-webkit-scrollbar{
+	width: 4px;
 }
 
-.contact-section .contact-text .contact-list li:last-child{
-	margin-bottom: 0;
+.message-list::-webkit-scrollbar-thumb{
+	background-color: #00CCFF;
+	border-radius: 2px;
 }
 
-.contact-section .contact-text .contact-list li strong{
-	display: block;
-	float: left;
-	width: 20%;
-	color: #666;
-	font-weight: 400;
+.message-list .message-list-ul{
+padding: 45px 35px 30px;
 }
 
-.contact-section .contact-text .contact-list li span{
-	font-weight: normal;
-	color: #555;
-}
-
-.contact-section .contact-text .contact-map{
-	height: 300px;
+.message-list .message-list-ul .message-item{
+	line-height: 1.8em;
+	padding: 1.2em 0;
+	border-bottom: 1px solid #eee;
 	overflow: hidden;
+	transition: 0.5s;
 }
 
-.contact-section .contact-text .contact-map iframe{
-	width: 100%;
-	height: 100%;
+.message-list .message-list-ul .message-item.hide{
+	height: 0;
+	opacity: 0;
+	padding: 0;
+}
+
+.message-list .message-list-ul .message-item:first-child{
+	margin-top: 0;
+}
+
+.message-list .message-list-ul .message-item:last-child{
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+.message-list .message-list-ul .message-item .name{
+	font-size: 16px;
+	font-weight: 600;
+	color: #00CCFF;
+}
+
+.message-list .message-list-ul .message-item .name:after{
+	content:':';
+	color: #666;
+	margin: 0 0.5em;
+}
+
+.message-list .message-list-ul .message-item .content{
+	color: #666;
+	display: inline;
+}
+
+.message-list .message-list-ul .message-item .message-time{
+	margin-top: 0.8em;
+	color: #ccc;
 }
 
 .footer .footer-links{

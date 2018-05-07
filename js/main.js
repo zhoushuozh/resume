@@ -1,51 +1,3 @@
-/*$(function(){
-	function fnHead(){
-		if($(window).scrollTop() == 0){
-			$(".head-bar").removeClass("head-active");
-			$(".btn-scroll-top").fadeOut();
-		}else{
-			$(".head-bar").addClass("head-active");
-			$(".btn-scroll-top").fadeIn();
-		}
-	}
-	fnHead();
-
-	$(window).scroll(function(){
-		fnHead();
-	})
-})*/
-
-/*$(function(){
-	var fbLeft = $(".filter-bar").offset().left;
-
-	$(".filter-btn button").click(function(){
-
-		var fLeft = Math.floor($(this).offset().left-fbLeft);
-		var fWidth = Math.ceil($(this).width());
-
-		$(".filter-btn button").removeClass("active");
-		$(this).addClass("active");
-
-		$(".filter-bar-line").css({"width":fWidth,"left":fLeft});
-	})
-})
-
-$(".btn-scroll-top").click(function(e){
-	$("html, body").animate({scrollTop:0});
-});*/
-
-/*$(function(){
-	$(".message-board").css({"min-height":$(".contact-text").height()});
-
-	$(".input-field input,.input-field textarea").focus(function(){
-		$(this).parent().addClass("used");
-	})
-
-	$(".input-field input,.input-field textarea").blur(function(){
-		$(this).parent().removeClass("used");
-	})
-})*/
-
 let headBox = document.querySelector('.head-bar');
 let backTop = document.querySelector('.btn-scroll-top');
 
@@ -103,25 +55,9 @@ for (let i = 0; i<amsInput.length; i++){
         this.parentNode.classList.add('used');
     };
     amsInput[i].onblur = function () {
-        this.parentNode.classList.remove('used');
-    }
-}
-
-let aFilterBtn = document.querySelectorAll('.filter-btn button');
-let filterLine = document.querySelector('.filter-bar-line');
-let nFbLeft = document.querySelector('.filter-bar').offsetLeft;
-
-for (let i =0; i<aFilterBtn.length; i++){
-    aFilterBtn[i].onclick = function () {
-    	for(let i =0; i<aFilterBtn.length; i++){
-            aFilterBtn[i].classList.remove('active')
-		}
-		this.classList.add('active');
-
-		let nBtnLeft = Math.floor(this.offsetLeft - nFbLeft);
-		let NBtnWidth = Math.ceil(this.offsetWidth);
-        filterLine.style.left = nBtnLeft + 'px';
-        filterLine.style.width = NBtnWidth + 'px';
+        if(!this.value){
+            this.parentNode.classList.remove('used');
+        }
     }
 }
 

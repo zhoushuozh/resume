@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/loading.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/loading.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_611782_3foehyrz0fz85mi.css">
 </head>
 <body>
@@ -65,7 +65,7 @@
                 <a href="http://p4ceeqep9.bkt.clouddn.com/resume.pdf" download="download">下载PDF简历</a>
             </div>
             <p class="about-text">
-                周硕，前端开发人员，计算机专业，熟悉 HTML、CSS、Javascript，能熟练开发符合 W3C 标准的页面，有良好的编码习惯。有 Linux 基础，对服务器端开发有一定了解，理解基本的算法分析与数据结构，以及面向对象的设计模式。
+                个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍个人介绍。
             </p>
         </section>
         <section id="skill" class="section skill-section">
@@ -208,19 +208,19 @@
                 <div class="contact-box">
                     <div class="message-board">
                         <h3>说点什么? </h3>
-                        <form class="contact-form" action="#" method="post">
+                        <form id="message-form" method="post">
                             <div class="input-field">
-                                <input type="text" id="user-name" name="name">
+                                <input type="text" id="user-name" name="user-name" maxlength="12" required="required">
                                 <span class="line"></span>
                                 <label for="user-name">name</label>
                             </div>
                             <div class="input-field">
-                                <input type="text" id="user-mail" name="email">
+                                <input type="email" id="user-mail" name="user-email" required="required">
                                 <span class="line"></span>
                                 <label for="user-mail">email</label>
                             </div>
                             <div class="input-field">
-                                <textarea name="message" id="message-content" rows="4"></textarea>
+                                <textarea name="message-content" maxlength="500" id="message-content" rows="4" required="required"></textarea>
                                 <span class="line"></span>
                                 <label for="message-content">message</label>
                             </div>
@@ -228,30 +228,9 @@
                         </form>
                     </div>
                 </div>
-                <div class="contact-box">
-                    <div class="contact-text">
-                        <ul class="contact-list">
-                            <li class="clearfix">
-                                <strong>邮箱</strong>
-                                <span><a href="mailto:zhoushuozh@gmail.com">zhoushuozh@gmail.com</a></span>
-                            </li>
-                            <li class="clearfix">
-                                <strong>电话</strong>
-                                <span>18703868792</span>
-                            </li>
-                            <li class="clearfix">
-                                <strong>QQ</strong>
-                                <span>766532291</span>
-                            </li>
-                            <li class="clearfix">
-                                <strong>地址</strong>
-                                <span>郑州市二七区</span>
-                            </li>
-                        </ul>
-                        <div class="contact-map">
-                            <iframe width="450" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyAw0EXLdaJimj8aMLiRVVRezib7RBaPQy4&center=34.759383, 113.660998&zoom=16&q=Space+Needle,Seattle+WA" allowfullscreen></iframe>
-                        </div>
-                    </div>
+                <div class="contact-box message-list">
+                    <ul class="message-list-ul">
+                    </ul>
                 </div>
             </div>
         </section>
@@ -277,11 +256,12 @@
     </footer>
     <button class="btn-scroll-top"><i class="iconfont icon-top"></i></button>
 </body>
-<!--<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>-->
 <script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
-<script src="js/main.js"></script>
+<script src="https://cdn1.lncld.net/static/js/3.6.8/av-min.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/message.js"></script>
 <script>
-(function (){
+!function (){
     document.onreadystatechange = completeLoading;
     let theLoader = document.getElementById('loader');
     //加载状态为complete时移除loading效果
@@ -298,6 +278,6 @@
             }
         }
     }
-}())
+}()
 </script>
 </html>
