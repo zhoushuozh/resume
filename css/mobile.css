@@ -1,0 +1,167 @@
+.head-bg{
+    height: 450px;
+}
+
+.about-section .contour{
+    padding: 30px;
+}
+
+.about-section .contour .avatar{
+    display: none;
+}
+
+.about-section .contour .about-right{
+    width: 100%;
+}
+
+.about-section .contour .about-title{
+    width: 60%;
+}
+
+.skill-section .skill-wraper .skill-item{
+    width: 100%;
+}
+
+.skill-section .skill-wraper .skill-item:nth-last-child(2){
+    margin-bottom: 40px;
+}
+
+.pf-grid-container .pf-grid-item{
+    width: 100%;
+}
+
+.timeline .timeline-bar{
+    left: 10px;
+}
+
+.timeline .timeline-item{
+    float: none;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 0;
+    position: relative!important;
+}
+
+.timeline .timeline-item:nth-child(even){
+    float: none;
+    top: 0!important;
+    margin-top: 30px;
+}
+
+.timeline .timeline-item .timeline-box:after{
+    left: -28px;
+    border-color: transparent #fff transparent transparent;
+}
+
+.timeline .timeline-item .timeline-icon,.timeline .timeline-item:nth-child(even) .timeline-icon{
+    left:-35px;
+}
+
+.timeline{
+    height: auto!important;
+}
+
+.message-section .contact-box{
+    width: 100%;
+    float: none;
+    padding: 0;
+}
+
+.message-section .message-board,.message-list .message-list-ul{
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.message-section .message-board{
+    height: auto;
+}
+
+.btn-submit{
+    display: block;
+}
+.btn-submit input[type=submit]{
+    width: 100%;
+}
+
+.header .head-nav{
+    display: flex;
+    position: fixed;
+    width: 60vw;
+    height: 100vh;
+    left: -60vw;
+    top: 0;
+    float: none;
+    justify-items: center;
+    align-items: center;
+    background-color: #00CCFF;
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.header .head-nav.active{
+    left: 0;
+}
+
+.header .head-nav ul{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header .head-nav li{
+    width: 100%;
+    float: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0;
+}
+.header .head-bar li a{
+    display: block;
+    font-size: 16px;
+    letter-spacing: 1em;
+    padding-left: 0.5em;
+}
+
+.header .head-bar.sticky li a{
+    color: white;
+    font-size: 16px;
+}
+
+.header .head-nav li a:after{
+    background-color: white;
+}
+
+.header .head-nav li a:hover:after, .header .head-nav .active a:after{
+    width: 3em;
+}
+
+.header .menu-btn{
+    display: block;
+    color: #fff;
+    font-size: 30px;
+    float: right;
+    position: relative;
+}
+
+.header .head-bar.sticky .menu-btn{
+    color: #00CCFF;
+}
+
+.header .head-bar .menu-btn.icon-guanbi{
+    color: #fff;
+    z-index: 100;
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 99;
+    display: none;
+}
+
+.overlay.active{
+    display: block;
+}

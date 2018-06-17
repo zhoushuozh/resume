@@ -100,3 +100,32 @@ function animate(time) {
     TWEEN.update(time);
 }
 requestAnimationFrame(animate);
+
+let menuBtn = document.querySelector(".menu-btn"),
+    navBar = document.querySelector('.head-nav'),
+    overlay = document.querySelector('.overlay'),
+    open;
+
+menuBtn.addEventListener('click',function(){
+    if(open){
+        navBar.classList.remove('active');
+        overlay.classList.remove('active');
+        menuBtn.classList.remove('icon-guanbi');
+        menuBtn.classList.add('icon-menu');
+        open = false
+    }else{
+        navBar.classList.add('active');
+        overlay.classList.add('active');
+        menuBtn.classList.remove('icon-menu');
+        menuBtn.classList.add('icon-guanbi');
+        open = true
+    }
+});
+
+overlay.addEventListener('click',function () {
+    navBar.classList.remove('active');
+    overlay.classList.remove('active');
+    menuBtn.classList.remove('icon-guanbi');
+    menuBtn.classList.add('icon-menu');
+    open = false
+});

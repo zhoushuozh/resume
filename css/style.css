@@ -63,6 +63,10 @@ img{display: inline;vertical-align:middle;}
 	margin-right: 5px;
 }
 
+.header .menu-btn{
+	display: none;
+}
+
 .header .head-nav{
 	float: right;
 	font-size: 14px;
@@ -137,10 +141,10 @@ img{display: inline;vertical-align:middle;}
 }
 
 .about-section .contour .avatar{
-	width: 35%;
+	width: 32%;
 	min-height: 1px;
 	float: left;
-	margin-right: 6%;
+	margin-right: 8%;
 }
 
 .about-section .contour .avatar img{
@@ -154,15 +158,18 @@ img{display: inline;vertical-align:middle;}
 }
 
 .about-section .contour .bubble{
+	position: absolute;
+	top: 0;
+	left: 0;
 	display: inline-block;
-	font-size: 14px;
+	font-size: 16px;
+	line-height: 1.2em;
 	padding: 5px 10px;
 	background: #00CCFF;
 	color: white;
 	font-weight: 700;
 	text-transform: uppercase;
-	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 25px;
 }
 
 .about-section .contour .bubble:after{
@@ -179,9 +186,11 @@ img{display: inline;vertical-align:middle;}
 }
 
 .about-section .contour .about-title{
+	position: relative;
 	font-size: 36px;
 	line-height: 1.2em;
 	margin-bottom: 5px;
+	padding-top: 1.5em;
 }
 
 .about-section .contour h2{
@@ -201,7 +210,7 @@ img{display: inline;vertical-align:middle;}
 .about-section .contour dt,
 .about-section .contour dd{
 	float: left;
-	margin: 12px 0;
+	margin: 10px 0;
 	line-height: 1.2;
 }
 
@@ -278,7 +287,7 @@ img{display: inline;vertical-align:middle;}
 	font-weight: 600;
 	line-height: 1.2;
 	text-align: center;
-	margin-bottom: 25px;
+	margin-bottom: 30px;
 	letter-spacing: 0.1em;
 }
 
@@ -330,56 +339,11 @@ img{display: inline;vertical-align:middle;}
 	width: 2% !important;
 }
 
-.filter-wraper{
-	text-align: center;
-	margin-bottom: 30px;
-}
-
-.filter-wraper .filter{
-	display: inline-block;
-}
-
-.filter-wraper .filter .filter-btn{
-	margin-bottom: 10px;
-}
-
-.filter-wraper .filter button{
-	border:none;
-	background: none;
-	margin-right: 50px;
-	font-weight: 600;
-	color: #333;
-	cursor: pointer;
-}
-
-.filter-wraper .filter button:last-child{
-	margin-right: 0;
-}
-
-.filter-wraper .filter .filter-bar{
-	height: 5px;
-	background-color: white;
-	border-radius: 3px;
-	position: relative;
-}
-
-.filter-wraper .filter .filter-bar .filter-bar-line{
-	display: block;
-	width: 32px;
-	height: 100%;
-	background: #00CCFF;
-	border-radius: 3px;
-	position: absolute;
-	left: 0;
-	top: 0;
-	transition: 0.3s;
-}
-
 .pf-grid-container {
 	position: relative;
 }
 .pf-grid-container .pf-grid-item{
-	width: 33%;
+	width: 33.33%;
 	float: left;
 	padding: 0 10px;
 	margin-bottom: 20px;
