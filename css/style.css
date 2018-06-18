@@ -262,11 +262,16 @@ img{display: inline;vertical-align:middle;}
 	letter-spacing: 0.1em;
 }
 
+.section .section-btn{
+	text-align: center;
+}
+
 .section .section-btn a{
 	display: inline-block;
 	border:1px solid #cbcdcf;
 	border-radius: 4px;
 	margin: 0 auto;
+	padding: 15px;
 	transition: box-shadow 0.3s;
 }
 
@@ -439,6 +444,15 @@ img{display: inline;vertical-align:middle;}
 
 .pf-grid-container .pf-grid-item .pf-item:hover .pf-popup-slide{
 	bottom: 20px;
+}
+
+.pf-grid-container .pf-grid-item .pf-explain{
+	line-height: 1.5em;
+	font-size: 14px;
+	color: #787878;
+	padding: 10px 0;
+	height: 6em;
+	margin-bottom: 10px;
 }
 
 .section .pf-more-btn{

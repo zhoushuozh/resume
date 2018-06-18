@@ -1,3 +1,11 @@
+.section{
+    margin-top: 50px;
+}
+
+.section.about-section{
+    margin-top: 30px;
+}
+
 .head-bg{
     height: 450px;
 }
@@ -28,6 +36,14 @@
 
 .pf-grid-container .pf-grid-item{
     width: 100%;
+}
+
+.pf-grid-container .pf-grid-item .pf-item .pf-item-cont {
+    bottom: 60px;
+}
+
+.pf-grid-container .pf-grid-item .pf-item .pf-popup-slide {
+    bottom: 20px;
 }
 
 .timeline .timeline-bar{
@@ -110,8 +126,8 @@
 .header .head-nav li{
     width: 100%;
     float: none;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     margin-left: 0;
 }
 .header .head-bar li a{
