@@ -2,9 +2,10 @@ let headBox = document.querySelector('.head-bar');
 let backTop = document.querySelector('.btn-scroll-top');
 
 let sectionBox = document.querySelectorAll('.container .section');
+let fideInUpBox = document.querySelectorAll('.container .fadeInUp');
 
-for(let i = 0 ; i<sectionBox.length; i++){
-    sectionBox[i].classList.add('out');
+for(let i = 0 ; i<fideInUpBox.length; i++){
+    fideInUpBox[i].classList.add('out');
 }
 
 backTop.onclick = function () {
@@ -77,10 +78,6 @@ function highLightNav() {
         let bodyHeight = document.documentElement.clientHeight;
         let sectionTop = sectionBox[i].offsetTop;
         let sectionScrollTop = sectionTop - window.scrollY;
-        if(sectionScrollTop < bodyHeight - 150 && sectionTop + sectionBox[i].offsetHeight > window.scrollY + 150){
-            minIndex = i;
-            sectionBox[minIndex].classList.remove('out');
-        }
         if(sectionScrollTop < bodyHeight / 2){
             minIndex = i;
             let id = sectionBox[minIndex].id;
@@ -91,6 +88,19 @@ function highLightNav() {
                 ali[i].classList.remove('active');
             }
             li.classList.add('active');
+        }
+    }
+}
+
+function boxUp() {
+    let minIndex = 0;
+    for(let i = 0 ; i<fideInUpBox.length; i++){
+        let bodyHeight = document.documentElement.clientHeight;
+        let upBoxTop = fideInUpBox[i].offsetTop;
+        let upBoxScrollTop = upBoxTop - window.scrollY;
+        if(upBoxScrollTop < bodyHeight - 150 && upBoxTop + fideInUpBox[i].offsetHeight > window.scrollY + 150){
+            minIndex = i;
+            fideInUpBox[minIndex].classList.remove('out');
         }
     }
 }
@@ -129,3 +139,32 @@ overlay.addEventListener('click',function () {
     menuBtn.classList.add('icon-menu');
     open = false
 });
+
+function throttle(fn, delta, context) {
+    let safe = true;
+    return function() {
+        // let args = arguments;
+        if(safe) {
+            fn.call(context);
+            safe = false;
+            setTimeout(function() {
+                safe = true
+            }, delta)
+        }
+    }
+}
+
+function setProjectItemHeight() {
+    if(window.screen.width <= 640){
+        let projectItem = document.querySelectorAll('.project-item');
+
+        for(let i = 0; i < projectItem.length; i++){
+            let height = projectItem[i].querySelector('.project-description').offsetHeight;
+            projectItem[i].style.height = height + 'px';
+        }
+    }
+}
+setProjectItemHeight();
+window.addEventListener('resize', throttle(setProjectItemHeight,500));
+
+baguetteBox.run('.project-img');
