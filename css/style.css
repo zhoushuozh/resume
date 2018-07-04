@@ -125,7 +125,11 @@ img{display: inline;vertical-align:middle;}
 	transition:all .5s ease-in-out;
 }
 
-.section.out{
+.fadeInUp{
+	transition:all .5s ease-in-out;
+}
+
+.fadeInUp.out{
 	transform: translateY(130px);
 	opacity: 0;
 }
@@ -269,7 +273,7 @@ img{display: inline;vertical-align:middle;}
 .section .section-btn a{
 	display: inline-block;
 	border:1px solid #cbcdcf;
-	border-radius: 4px;
+	border-radius: 8px;
 	margin: 0 auto;
 	padding: 15px;
 	transition: box-shadow 0.3s;
@@ -403,7 +407,6 @@ img{display: inline;vertical-align:middle;}
 	font-weight: 400;
     line-height: 1.1;
     margin-right: 15px;
-    text-transform: uppercase;
 }
 
 .pf-grid-container .pf-grid-item .pf-popup-slide{
@@ -423,7 +426,7 @@ img{display: inline;vertical-align:middle;}
     display: inline-block;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
+    border-radius: 8px;
     transition: background .3s;
 }
 
@@ -451,7 +454,6 @@ img{display: inline;vertical-align:middle;}
 	font-size: 14px;
 	color: #787878;
 	padding: 10px 0;
-	height: 6em;
 	margin-bottom: 10px;
 }
 
@@ -510,7 +512,6 @@ img{display: inline;vertical-align:middle;}
 }
 
  .timeline .timeline-item{
-	position: relative;
     zoom: 1;
     width: 50%;
     padding-right: 40px;
@@ -519,7 +520,7 @@ img{display: inline;vertical-align:middle;}
  .timeline .timeline-item .timeline-box {
     background: #fff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     font-size: 16px;
     line-height: 30px;
@@ -533,7 +534,7 @@ img{display: inline;vertical-align:middle;}
  	width: 100%;
  	height: 4px;
 	background: #00CCFF;
-	border-radius: 4px 4px 0 0;
+	border-radius: 8px 8px 0 0;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -697,7 +698,7 @@ img{display: inline;vertical-align:middle;}
 	position: relative;
 	user-select: none;
 	background-color: #00CCFF;
-	border-radius: 5px;
+	border-radius: 8px;
 	overflow:hidden;
 	transition: .3s;
 }
@@ -850,4 +851,119 @@ padding: 45px 35px 30px;
 .btn-scroll-top.show{
 	opacity: 1;
 	visibility: visible;
+}
+
+.project-wrap .project-item{
+	width: 49%;
+	height: 230px;
+	float: left;
+	background-color: #fff;
+	box-shadow: 0 0 8px rgba(0,0,0,0.2);
+	margin-bottom: 30px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.project-wrap .project-item:nth-child(even){
+	float: right;
+}
+
+.project-wrap .project-item .project-description{
+	width: 70%;
+	float: left;
+	padding: 20px;
+}
+
+.project-wrap .project-item .project-description h3{
+	font-size: 20px;
+	font-weight: normal;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 15px;
+}
+
+.project-wrap .project-item .project-description p{
+	color: #666;
+	margin: 15px 0;
+}
+
+.project-wrap .project-item .project-description .project-link a{
+	border-radius: 5px;
+	height: 20px;
+	display: block;
+	float: left;
+	line-height: 20px;
+	padding: 0 5px;
+	border: 1px solid #00CCFF;
+	color: #00CCFF;
+	font-size: 12px;
+	margin-right: 5px;
+}
+
+.project-wrap .project-item .project-description .project-link a:hover{
+	background-color: #00CCFF;
+	color: #fff;
+}
+
+.project-wrap .project-item .project-description .project-link a i{
+	color: inherit;
+	font-size: 12px;
+	margin-right: 3px;
+	font-weight: bold;
+}
+
+.project-wrap .project-item .project-img{
+	width: 30%;
+	height: 100%;
+	float: right;
+	opacity: 0.6;
+	transition: 0.3s;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.project-wrap .project-item .project-img a{
+	width: 100%;
+	height: 100%;
+}
+
+.project-wrap .project-item .project-img img{
+	height: 100%;
+}
+
+.project-wrap .project-item:hover .project-img{
+	opacity: 1;
+}
+
+#skill .skill-description{
+	/*margin-top: 40px;*/
+}
+
+#skill .skill-description h3{
+	font-size: 18px;
+	color: #555;
+	margin-top: 30px;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #eee;
+}
+
+#skill .skill-description h3:first-child{
+	margin-top: 0;
+}
+
+#skill .skill-description ul{
+	border-left: 3px solid #B3F0FF;
+	padding-left: 10px;
+	margin: 20px 0;
+}
+
+#skill .skill-description ul:last-child{
+	margin-bottom: 0;
+}
+
+#skill .skill-description ul li{
+	color: #666;
+	line-height: 1.8em;
 }

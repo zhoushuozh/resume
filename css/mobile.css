@@ -26,6 +26,10 @@
     width: 60%;
 }
 
+.skill-section .skill-wraper{
+    padding: 30px;
+}
+
 .skill-section .skill-wraper .skill-item{
     width: 100%;
 }
@@ -55,13 +59,11 @@
     width: 100%;
     padding-left: 40px;
     padding-right: 0;
-    position: relative!important;
 }
 
 .timeline .timeline-item:nth-child(even){
     float: none;
-    top: 0!important;
-    margin-top: 30px;
+    margin-top: 30px!important;
 }
 
 .timeline .timeline-item .timeline-box:after{
@@ -79,6 +81,7 @@
 
 .message-section .contact-box{
     width: 100%;
+    height: auto;
     float: none;
     padding: 0;
 }
@@ -180,4 +183,9 @@
 
 .overlay.active{
     display: block;
+}
+
+.project-wrap .project-item{
+    width: 100%;
+    height: auto;
 }
