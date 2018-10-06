@@ -59,11 +59,11 @@
     width: 100%;
     padding-left: 40px;
     padding-right: 0;
+    margin-top: 30px!important;
 }
 
 .timeline .timeline-item:nth-child(even){
     float: none;
-    margin-top: 30px!important;
 }
 
 .timeline .timeline-item .timeline-box:after{
